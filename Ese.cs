@@ -19,7 +19,6 @@ namespace Kontrolltoo_mang
 
         public int punktideArv()
         {
-
             return points;
         }
         public string printInfo()

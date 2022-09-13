@@ -26,12 +26,7 @@ namespace Kontrolltoo_mang
 
             Tegelane asd = new Tegelane("Darwin");
 
-            Console.Write(asd.printInfo() + ", ");
-
-            asd.valjastaEsemed(esed, asd.lisaEse(0));
-            asd.punktideArv();
-
-
+            Console.Write(asd.printInfo() + ", " + asd.valjastaEsemed(esed, asd.lisaEse(0))); //+ asd.punktideArv(esed, asd.lisaEse(0))
 
 
             //Uksus obj = new Program();

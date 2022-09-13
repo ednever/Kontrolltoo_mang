@@ -10,6 +10,7 @@ namespace Kontrolltoo_mang
     {
         string nimi;
 
+
         public Tegelane(string nimi)
         {
             this.nimi = nimi;
@@ -20,15 +21,17 @@ namespace Kontrolltoo_mang
             return valik;
         }
 
-        public void valjastaEsemed(List<Ese> list, int valik)
+        public string valjastaEsemed(List<Ese> list, int valik)
         {
             Ese zxc = list[valik];
-            Console.WriteLine(zxc.printInfo());
+            string ese = zxc.printInfo();
+            return ese;
         }
         public int punktideArv() //List<Ese> list, int valik
         {
-            //Ese zxc = list[valik];        
-            return 0; //zxc.punktideArv();
+            //Ese zxc = list[valik];
+            //int punktid = zxc.punktideArv();
+            return 0; //punktid; 
         }
         public string printInfo()
         {
