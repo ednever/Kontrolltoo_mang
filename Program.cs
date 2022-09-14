@@ -39,11 +39,14 @@ namespace Kontrolltoo_mang
 
             Tegelane[] mangijad = new Tegelane[2] { tegelane, tegelane2 };
             Mang uusMang = new Mang(mangijad);
+            List<Tegelane> voitjad = uusMang.suurimaEsemeteArvuga();
+            foreach (var item in voitjad)
+            {
+                Console.WriteLine(item.printInfo());
+            }
             Tegelane voitja = uusMang.suurimaPunktideArvuga();
+            Console.WriteLine("Võitja:");
             voitja.printInfo();
-            
-
-
         }
     }
 }
