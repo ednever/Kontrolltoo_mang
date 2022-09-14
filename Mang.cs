@@ -13,13 +13,37 @@ namespace Kontrolltoo_mang
         {
             this.mangija = mangija;
         }
-        public Tegelane suurimaEsemeteArvuga()
+        public List<Tegelane> suurimaEsemeteArvuga()
         {
-            return mangija[0];
+            List<Tegelane> voitjad = new List<Tegelane>();
+            Tegelane sorted = mangija[0];
+            foreach (Tegelane tegelane in mangija)
+            {
+                int num = sorted.CompareTo(tegelane);
+                if (num < 0)
+                {
+                    sorted = tegelane;
+                    voitjad.Clear();
+                }
+                if (num == 0) voitjad.Add(tegelane);                
+            }
+            voitjad.Add(sorted);
+            return voitjad;
         }
-        //public Tegelane suurimaPunktideArvuga()
-        //{
-
-        //}
+        public Tegelane suurimaPunktideArvuga()
+        {
+            int parim = 0;
+            Tegelane voitja = mangija[0];
+            foreach (var item in mangija)
+            {
+                int arv = item.punktideArv();
+                if (arv > parim)
+                {
+                    parim = arv;
+                    voitja = item;
+                }
+            }
+            return voitja;
+        }
     }
 }

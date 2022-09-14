@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kontrolltoo_mang
 {
-    public class Ese : Uksus
+    public class Ese : IUksus
     {
         string ese;
         int points;
@@ -17,13 +17,7 @@ namespace Kontrolltoo_mang
             this.points = points;
         }
 
-        public int punktideArv()
-        {
-            return points;
-        }
-        public string printInfo()
-        {
-            return ese;
-        }
+        public int punktideArv() {return points; }
+        public string printInfo() { return ese; }
     }
 }

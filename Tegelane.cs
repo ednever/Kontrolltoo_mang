@@ -6,42 +6,44 @@ using System.Threading.Tasks;
 
 namespace Kontrolltoo_mang
 {
-    class Tegelane : Uksus //, IComparable<Tegelane>
+    class Tegelane : IUksus , IComparable<Tegelane>
     {
         string nimi;
-
-
+        List<Ese> esed = new List<Ese>();
         public Tegelane(string nimi)
         {
             this.nimi = nimi;
         }
-
-        public int lisaEse(int valik)
-        {
-            return valik;
+        public void lisaEse(Ese valik) 
+        { 
+            esed.Add(valik);
         }
-
-        public string valjastaEsemed(List<Ese> list, int valik)
+        public void valjastaEsemed()
         {
-            Ese zxc = list[valik];
-            string ese = zxc.printInfo();
-            return ese;
+            foreach (Ese item in esed)
+            {
+                Console.WriteLine($" <<<{item.printInfo()}>>> ");
+            }
         }
-        public int punktideArv() //List<Ese> list, int valik
+        public int punktideArv()
         {
-            //Ese zxc = list[valik];
-            //int punktid = zxc.punktideArv();
-            return 0; //punktid; 
+            int arv_sum = 0;
+            foreach (Ese item in esed)
+            {
+                arv_sum += item.punktideArv();
+            }
+            return arv_sum;
         }
         public string printInfo()
         {
-            return nimi;
+            string tegelase_info = nimi + ", " + esed.Count() + ", " + punktideArv();
+            return tegelase_info;
         }
-
-        //public int CompareTo(Tegelane? other)
-        //{
-        //    if (other == null) return 1;
-        //    return m_value.CompareTo(other.m_value);
-        //}
+        public int CompareTo(Tegelane? muu)
+        {
+            if (muu == null) return 1;
+            return this.esed.Count - muu.EsesKogus();
+        }
+        int EsesKogus() { return this.esed.Count; }
     }
 }

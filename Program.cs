@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Kontrolltoo_mang
 {
-    class Program //: Uksus
+    class Program
     {
         static void Main(string[] args)
         {
-            UTF8Encoding utf8 = new UTF8Encoding();
+            Console.OutputEncoding = Encoding.UTF8;
 
             StreamReader from_file = new StreamReader(@"..\..\..\Esemed.txt");
             string text;
@@ -24,23 +24,26 @@ namespace Kontrolltoo_mang
             }
             from_file.Close();
 
-            Tegelane asd = new Tegelane("Darwin");
+            Tegelane tegelane = new Tegelane("Darwin");
+            Tegelane tegelane2 = new Tegelane("Keld");
 
-            Console.Write(asd.printInfo() + ", " + asd.valjastaEsemed(esed, asd.lisaEse(0))); //+ asd.punktideArv(esed, asd.lisaEse(0))
+            tegelane.lisaEse(esed[0]);
+            tegelane.lisaEse(esed[1]);            
+            Console.WriteLine(tegelane.printInfo());
+            tegelane.valjastaEsemed();
+
+            tegelane2.lisaEse(esed[2]);
+            tegelane2.lisaEse(esed[3]);
+            Console.WriteLine(tegelane2.printInfo());
+            tegelane2.valjastaEsemed();
+
+            Tegelane[] mangijad = new Tegelane[2] { tegelane, tegelane2 };
+            Mang uusMang = new Mang(mangijad);
+            Tegelane voitja = uusMang.suurimaPunktideArvuga();
+            voitja.printInfo();
+            
 
 
-            //Uksus obj = new Program();
-            //obj.printInfo();
         }
-        //int Uksus.punktideArv()
-        //{
-        //    return 0;
-        //}
-        //string Uksus.printInfo()
-        //{
-
-        //    Console.WriteLine();
-        //    return "";
-        //}
     }
 }
